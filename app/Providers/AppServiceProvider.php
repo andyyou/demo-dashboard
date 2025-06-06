@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // 載入共用的 migrations
+        if (is_dir(base_path('shared/database/migrations'))) {
+            $this->loadMigrationsFrom(base_path('shared/database/migrations'));
+        }
     }
 }
